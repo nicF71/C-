@@ -30,7 +30,7 @@ namespace Taschenrechner
 
             while (abbruch < 1)
             {
-                Console.WriteLine("Soll addiert(1), Subtrahiert(2), Multipliziert(3), Dividiert(4) werden oder möchten sie das Programm beenden(5)?");
+                Console.WriteLine("Soll addiert(1), Subtrahiert(2), Multipliziert(3) oder soll Dividiert(4) werden?");
                 string eingabe = Console.ReadLine();
                 
                 Console.WriteLine("Bitte geben sie die erste Zahl ein");
