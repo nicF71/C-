@@ -1,0 +1,94 @@
+/*
+ Programm Taschenrechner
+ Erstellt am 23.03.2023
+ Zuletzt bearbeitet: 26.02.2023
+ Erstellt von: Nic Frigius
+ Zweck: Dieses Programm ist ein funktionierender Taschenrechner, der addieren, subtrahieren, multiplizieren und dividieren
+        kann. Er läuft in einer Schleife, bis der Benutzer sagt, dass er nichts weiters berechnen möchte.
+ @Param: 
+ -ergebnis: Das Ergebnis der Berechnung in double
+ -abbruch: Eine int variable, damit die Schleife abbricht, wenn der Nutzer es möchte
+ -eingabe: Die Eingabe des Nutzers, um auszuwählen, welche Berechnungsart er durchführen will
+ -zahl1: Die erste Zahl zur Berechnung in double
+ -zahl2: Die zweite Zahl zur Berechnung in double
+ -beenden: Die eingabe des Nutzers, um auszuwählen, ob er noch eine Berechnung durchführen möchte
+ */
+
+
+using System;
+
+namespace Taschenrechner
+{
+    class Taschenrechner
+    {
+        private static void Main()
+        {
+            double ergebnis;
+            int abbruch = 0;
+
+            Console.WriteLine("Wilkommen beim Taschenrechner");
+
+            while (abbruch < 1)
+            {
+                Console.WriteLine("Soll addiert(1), Subtrahiert(2), Multipliziert(3), Dividiert(4) werden oder möchten sie das Programm beenden(5)?");
+                string eingabe = Console.ReadLine();
+                
+                Console.WriteLine("Bitte geben sie die erste Zahl ein");
+                double zahl1 = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Bitte geben sie die zweite Zahl ein");
+                double zahl2 = double.Parse(Console.ReadLine());
+
+                if (eingabe is "1")
+                {
+                    ergebnis = zahl1 + zahl2;
+                    Console.WriteLine("Wenn man die beiden Zahlen addiert bekommt man " + ergebnis + " heraus");
+                }
+                
+                else if (eingabe is "2")
+                {
+                    ergebnis = zahl1 - zahl2;
+                    Console.WriteLine("Wenn man die beiden Zahlen subtrahiert bekommt man " + ergebnis + " heraus");
+                }
+                
+                else if (eingabe is "3")
+                {
+                    ergebnis = zahl1 * zahl2;
+                    Console.WriteLine("Wenn man die beiden Zahlen multiplizert bekommt man " + ergebnis + " heraus");
+                }
+                
+                else if (eingabe is "4")
+                {
+                    if (zahl2 > 0)
+                    {
+                        ergebnis = zahl1 / zahl2;
+                        Console.WriteLine("Wenn man die beiden Zahlen dividiert bekommt man " + ergebnis + " heraus");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Diese Einagbe kann nicht durchgeführt werden");
+                    }
+                }
+                
+                
+                Console.WriteLine("Möchten sie noch eine Berechnung durchführen? Ja(1) / Nein(2)");
+                string beenden = Console.ReadLine();
+
+                if (beenden is "2")
+                {
+                    abbruch++;
+                    Console.WriteLine("Vielen Dank für das Benutzen des Taschenrechners!");
+                }
+                else
+                {
+                    Console.WriteLine("Alles klar!");
+                }
+
+                Console.ReadLine();
+
+            }
+
+        }
+
+    }
+}
