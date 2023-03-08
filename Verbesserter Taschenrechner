@@ -1,3 +1,19 @@
+/*
+ Programm Taschenrechner
+ Erstellt am 08.03.2023
+ Zuletzt bearbeitet: 08.03.2023
+ Erstellt von: Nic Frigius
+ Zweck: Dieses Programm ist ein funktionierender Taschenrechner, der addieren, subtrahieren, multiplizieren, dividieren, die Wurzel ziehen und quadrieren kann.
+        kann. Er läuft in einer Schleife, bis der Benutzer sagt, dass er nichts weiters berechnen möchte.
+ @Param: 
+ -ergebnis: Das Ergebnis der Berechnung in double
+ -abbruch: Eine int variable, damit die Schleife abbricht, wenn der Nutzer es möchte
+ -eingabe: Die Eingabe des Nutzers, um auszuwählen, welche Berechnungsart er durchführen will
+ -zahl1: Die erste Zahl zur Berechnung in double
+ -zahl2: Die zweite Zahl zur Berechnung in double
+ -beenden: Die eingabe des Nutzers, um auszuwählen, ob er noch eine Berechnung durchführen möchte
+ */
+
 using System;
 
 namespace ConsoleApplication1
