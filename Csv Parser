@@ -1,0 +1,80 @@
+using System;
+using System.IO;
+
+namespace Aufgabe1
+{
+    public class Aufgabe1
+    {
+        public static void Main(string[] args)
+        {
+            string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+            string sFile = Path.GetFullPath(Path.Combine(sCurrentDirectory, @"..\..\..\Personaldaten.txt"));
+
+            string zeile = System.IO.File.ReadAllText(sFile);
+
+            var ergebnis = Menschen(sFile);
+            
+            int zähler = 0;
+            var zeilen = System.IO.File.ReadAllLines(sFile);
+
+            while (zähler < zeilen.Length) {
+               
+                var person1 = ergebnis[zähler];
+               
+                Console.WriteLine(person1.Vorname + " " + person1.Nachname + " " + person1.Telefonnummer + " " + person1.Addresse + " " + person1.Postleitzahl + " " + person1.Wohnort);
+                zähler++;
+            }
+
+            Console.ReadLine();
+        }
+
+
+        public static Person[] Menschen(string sFile)
+        {
+            var zeilen = System.IO.File.ReadAllLines(sFile);
+            int zähler = 0;
+            var allePersonen = new Person[zeilen.Length];
+
+
+            while (zähler<zeilen.Length )
+            {
+                Person person = new Person();
+                string[] personenDaten = zeilen[zähler].Split(';');
+                person.Vorname = personenDaten[0];
+                person.Nachname = personenDaten[1];
+                person.Telefonnummer = personenDaten[2];
+                person.Addresse = personenDaten[3];
+                person.Postleitzahl = personenDaten[4];
+                person.Wohnort = personenDaten[5];
+
+                allePersonen[zähler] = person;               
+               
+                zähler++;
+            }
+          
+            
+            return allePersonen;   
+        }
+    }
+    public class Person
+    {
+      
+
+        public Person() {
+            
+        
+        }
+
+        public string Vorname { get;set  }
+        public string Nachname { get; set; }
+        public string Telefonnummer { get; set; }
+        public string Addresse { get; set; }
+        public string Postleitzahl { get; set; }
+        public string Wohnort { get; set; }
+
+        
+
+
+    }
+}
